@@ -1,0 +1,52 @@
+{
+  "name": "bytom.js",
+  "version": "1.4.0-beta",
+  "description": "bytom wrapper javascript",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bytom/bytom.js.git"
+  },
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=4.7"
+  },
+  "scripts": {
+    "docs": "jsdoc -c jsdoc.conf.json",
+    "build": "babel src --out-dir dist",
+    "test": "mocha testCompiled",
+    "pretest": "npm run build && babel test --out-dir testCompiled",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "bn.js": "^5.1.1",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "ink-docstrap": "^1.3.2",
+    "jsdoc": "^3.5.5",
+    "lodash": "^4.17.15",
+    "mocha": "^5.2.0",
+    "uuid": "~3.0.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "btoa": "^1.2.1"
+  },
+  "bugs": {
+    "url": "https://github.com/Bytom/bytom.js/issues"
+  },
+  "homepage": "https://github.com/Bytom/bytom.js#readme",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "keywords": [
+    "bytom.js",
+    "bytom",
+    "dapp",
+    "bytom"
+  ],
+  "author": "bytom.io"
+}
