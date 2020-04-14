@@ -33,7 +33,7 @@ let Bytom = function Bytom(provider) {
     };
 
 
-    let defaultAccount = window.bytom.defaultAccount;
+    let defaultAccount = window.bytom.defaultAccount || window.bytom.default_account;
 
     Object.defineProperty(this, 'defaultAccount', {
         get: function () {
@@ -45,9 +45,9 @@ let Bytom = function Bytom(provider) {
     });
 
     this.currentProvider = _provider
-    this.sendTransaction = window.bytom.sendTransaction
-    this.sendAdvancedTransaction = window.bytom.sendAdvancedTransaction
-    this.signMessage = window.bytom.signMessage
+    this.sendTransaction = window.bytom.sendTransaction || window.bytom.send_transaction
+    this.sendAdvancedTransaction = window.bytom.sendAdvancedTransaction ||  window.bytom.send_advanced_transaction
+    this.signMessage = window.bytom.signMessage ||window.bytom.sign_message
     this.chain = _chain
     this.setChain = function(param){
       client = new Client({
