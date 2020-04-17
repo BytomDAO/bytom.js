@@ -25,12 +25,12 @@ const camelize = (object) => {
 class Connection {
   constructor({url, chain}) {
     const _chain = chain.toLowerCase()
-    let _baseUrl = url
+    let _baseUrl = url.replace(/\/+$/, "")
     if(_chain == 'vapor'){
-      _baseUrl = `${url}/api/v2/vapor`;
+      _baseUrl = `${_baseUrl}/api/v2/vapor`;
     }
     else if(_chain == 'bytom'){
-      _baseUrl = `${url}/api/v2/btm`;
+      _baseUrl = `${_baseUrl}/api/v2/btm`;
     }
 
     this.baseUrl = _baseUrl
