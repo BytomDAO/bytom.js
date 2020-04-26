@@ -63,7 +63,7 @@ let Bytom = function Bytom(provider) {
 
     this.getBalance = function (accountId){
         return new Client({
-          url:  window.bytom.currentProvider,
+          url:  _provider,
           chain: window.bytom.chain || 'vapor'
         }).balances.list(accountId);
     }
