@@ -9,7 +9,7 @@ const chaiAsPromised = require('chai-as-promised')
 chai.use(chaiAsPromised)
 const expect = chai.expect
 
-const url = 'http://https://bcapi.bystack.com/'
+const url = 'https://bcapi.bystack.com/'
 
 const Bytom = new bytom()
 
