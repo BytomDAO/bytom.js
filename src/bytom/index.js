@@ -8,7 +8,7 @@ let Bytom = function Bytom(provider) {
 
     this.version = version;
 
-    this.Bc = new Bc(this);
+    this.Bc = new Bc(provider);
 
     // overwrite package setProvider
     let _provider = provider || window.bytom.currentProvider || ''

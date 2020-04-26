@@ -19,15 +19,15 @@
 
 import Client from "../client";
 
-let Blockcenter = function Blockcenter() {
+let Blockcenter = function Blockcenter(provider) {
     // overwrite setProvider
+  let _provider = provider || window.bytom.currentProvider || ''
 
   let client = new Client({
-    url:  window.bytom.currentProvider,
+    url: _provider,
     chain: window.bytom.chain || 'vapor'
   })
 
-  let _provider = ''
 
   this.setProvider = function (provider, chain) {
     _provider = provider
