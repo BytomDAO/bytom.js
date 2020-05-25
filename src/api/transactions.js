@@ -162,7 +162,7 @@ const transactionsApi = connection => {
      * @param {String} params.transaction_id - transaction id, hash of transaction.
      * @returns {Promise<Transaction[]>} The result transactions.
      */
-    list: (tx_id) => connection.request('/merchant/get-transaction', {tx_id}).then((resp)=>{
+    list: (tx_id) => connection.request('/merchant/transaction', {tx_id}).then((resp)=>{
       let object = resp
       delete object['balances']
       delete object['types']

@@ -27,10 +27,10 @@ class Connection {
     const _chain = chain.toLowerCase()
     let _baseUrl = url.replace(/\/+$/, "")
     if(_chain == 'vapor'){
-      _baseUrl = `${_baseUrl}/api/v2/vapor`;
+      _baseUrl = `${_baseUrl}/vapor/v3`;
     }
     else if(_chain == 'bytom'){
-      _baseUrl = `${_baseUrl}/api/v2/btm`;
+      _baseUrl = `${_baseUrl}/bytom/v3`;
     }
 
     this.baseUrl = _baseUrl
@@ -51,7 +51,7 @@ class Connection {
       if (resp.data.code !== 200) {
         throw errors.formatErrMsg(resp.data)
       } else if (resp.data.code === 200) {
-        return camelize(resp.data.result.data)
+        return camelize(resp.data.data)
       }
 
       return resp.data

@@ -40,27 +40,17 @@ const balancesApi = (connection) => {
      * @param {String} params.account_id account id.
      * @returns {Promise<Array<Balance>>} The result balances.
      */
-    list: (guid) => connection.request('/account/list-addresses', {guid}).then((resp)=>{
-      let voteBalance
-      const votes = (resp[0].votes || [])
-      if(votes.length>0){
-        voteBalance = new BN(_.sumBy(votes,'total'))
-      }
-
-      const balances = resp[0].balances.map((balance)=> {
-        delete balance['icon']
-        delete balance['alias']
+    list: (address) => connection.request(`/account/address?address=${address}`, '', 'GET').then((resp)=>{
+      const balances = resp.balances.map((balance)=> {
         delete balance['inUsd']
         delete balance['inCny']
         delete balance['inBtc']
         delete balance['totalReceived']
         delete balance['totalSent']
 
-        if(voteBalance && balance.asset === BTM){
-          balance.availableBalance = (new BN(balance.balance).sub(voteBalance)).toString()
-        }else{
-          balance.availableBalance = balance.balance
-        }
+        balance.symbol = balance.asset.symbol
+        balance.name = balance.asset.name
+        balance.asset = balance.asset.assetId
 
         return balance
       })
