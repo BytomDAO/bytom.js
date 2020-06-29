@@ -18,6 +18,7 @@
 "use strict";
 
 import Client from "../client";
+import _ from 'lodash';
 
 let Blockcenter = function Blockcenter(provider) {
     // overwrite setProvider
@@ -25,7 +26,7 @@ let Blockcenter = function Blockcenter(provider) {
 
   let client = new Client({
     url: _provider,
-    chain: window.bytom.chain || 'vapor'
+    chain: window.bytom ? window.bytom.chain : 'vapor'
   })
 
 
@@ -44,6 +45,12 @@ let Blockcenter = function Blockcenter(provider) {
     return client.assets.list(id);
   }
 
+  this.queryAll = function () {
+    return client.assets.listAll().then((resp)=>{
+      const result = _.filter(resp, function(o) { return o.symbol !== 'Asset'; });
+      return result;
+    });
+  }
 
 };
 

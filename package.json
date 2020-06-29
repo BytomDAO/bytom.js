@@ -1,6 +1,6 @@
 {
   "name": "bytom.js",
-  "version": "2.0.0-Beta",
+  "version": "2.0.0-Beta2",
   "description": "bytom wrapper javascript",
   "main": "dist/index.js",
   "repository": {

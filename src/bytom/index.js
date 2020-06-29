@@ -12,7 +12,7 @@ let Bytom = function Bytom(provider) {
 
     // overwrite package setProvider
     let _provider = provider || window.bytom.currentProvider || ''
-    let _chain = window.bytom.chain || 'vapor'
+    let _chain = window.bytom? window.bytom.chain : 'vapor'
 
     let client = new Client({
         url:  _provider,

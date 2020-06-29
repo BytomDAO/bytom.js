@@ -66,6 +66,14 @@ const assetsApi = (connection) => {
      */
     list: (id) => connection.request(`/q/asset?id=${id}`, '', 'GET'),
 
+    /**
+     * Get All Asset.
+     *
+     * @param {module:AssetsApi~id} id - Asset id.
+     * @returns {Promise<Asset>} target asset.
+     */
+    listAll: () => connection.request('/q/assets', {}),
+
   }
 }
 
