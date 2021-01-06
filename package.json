@@ -35,7 +35,7 @@
     "uuid": "~3.0.0"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "btoa": "^1.2.1"
   },
   "bugs": {
